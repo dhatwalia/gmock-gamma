@@ -26,3 +26,21 @@ TEST_F(CheckoutTests, CanGetTotalForMultipleItems)
     int total = checkout.calculateTotal();
     ASSERT_EQ(3, total);
 }
+
+TEST_F(CheckoutTests, CanAddDiscount)
+{
+    checkout.addDiscount("a", 3, 2);
+}
+
+TEST_F(CheckoutTests, CanCalculateTotalWithDiscount)
+{
+    checkout.addItemPrice("a", 10);
+    checkout.addDiscount("a", 3, 25);
+    checkout.addItem("a");
+    checkout.addItem("a");
+    checkout.addItem("a");
+    checkout.addItem("a");
+    checkout.addItem("a");
+    int total = checkout.calculateTotal();
+    ASSERT_EQ(45, total);
+}
