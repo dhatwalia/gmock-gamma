@@ -15,6 +15,9 @@ void Checkout::addItemPrice(string item, int price)
 
 void Checkout::addItem(string item)
 {
+    map<string, int>::iterator priceIter = prices.find(item);
+    if (priceIter == prices.end())
+        throw std::invalid_argument("Invalid item. No price");
     items[item]++;
 }
 
