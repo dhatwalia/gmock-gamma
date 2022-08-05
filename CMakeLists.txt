@@ -20,6 +20,7 @@ set(Headers
 set(Sources
     Example.cpp
     Checkout.cpp
+    CMock.cpp
 )
 
 add_library(${This} STATIC ${Sources} ${Headers})
